@@ -28,8 +28,8 @@
    docker compose exec candidate-service python manage.py migrate
    ```
 ## Некоторые тесты
-1. **GET /api/operations/{operation_id}**
-   powershell:
+1. **GET /api/operations/{operation_id}**<br>
+   powershell:                                                                                                                                                               
    ```bash
    Invoke-RestMethod -Uri "http://localhost:8080/api/operations/op-test-1" -Method Get 
    ```
