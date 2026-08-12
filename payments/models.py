@@ -29,6 +29,18 @@ class Operation(models.Model):
     def __str__(self):
         return self.operation_id
     
+    def log_event(self, from_status, to_status, message):
+        last_event = self.events.order_by('-event_id').first()
+        next_event_id = (last_event.event_id + 1) if last_event else 1
+            
+        OperationEvent.objects.create(
+            operation=self,
+            event_id=next_event_id,
+            from_status=from_status,
+            to_status=to_status,
+            message=message
+        )
+    
 
 class OperationEvent(models.Model):
     
@@ -47,15 +59,5 @@ class OperationEvent(models.Model):
     
     occured_at = models.DateTimeField(auto_now_add=True)
     
-    def log_event(self, from_status, to_status, message):
-        last_event = self.events.order_by('-event_id').first()
-        next_event_id = (last_event.event_id + 1) if last_event else 1
-        
-        OperationEvent.objects.create(
-            operation=self,
-            event_id=next_event_id,
-            from_status=from_status,
-            to_status=to_status,
-            message=message
-        )
+    
 
