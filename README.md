@@ -37,7 +37,7 @@
    ```bash
    curl -X GET http://localhost:8080/api/operations/op-test-1
    ```
-2. **GET /api/operations/{operation_id}/events**
+2. **GET /api/operations/{operation_id}/events**<br>
    powershell:
    ```bash
    Invoke-RestMethod -Uri "http://localhost:8080/api/operations/op-test-1/events" -Method Get
@@ -46,7 +46,7 @@
    ```bash
    curl -X GET http://localhost:8080/api/operations/op-test-1/events
    ```
-3. **GET /api/operations**
+3. **GET /api/operations**<br>
    powershell:
    ```bash
    Invoke-RestMethod -Uri "http://localhost:8080/api/operations" -Method Get
